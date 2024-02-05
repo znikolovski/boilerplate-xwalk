@@ -1,2 +1,5 @@
 mountpoints:
-  /: https://author-p115476-e1134617.adobeaemcloud.com/bin/franklin.delivery/znikolovski/boilerplate-xwalk/main
+  /:
+    url: https://author-p115476-e1134617.adobeaemcloud.com/bin/franklin.delivery/znikolovski/boilerplate-xwalk/main
+    type: markup
+    suffix: ".html?wcmmode=disabled"
