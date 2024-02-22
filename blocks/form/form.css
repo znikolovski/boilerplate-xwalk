@@ -1,600 +1,505 @@
 :root {
-  --form-font-size-m: 22px;
-  --form-font-size-s: 18px;
-  --form-font-size-xs: 16px;
-  --form-background-color: var(--mt-background-color-primary);
-  --form-padding: 3%;
-  --form-columns: 1;
-  --form-field-gap: 12px 0 0 0;
-  --form-invalid-border-color: var(--mt-global-color-orange);
-  --form-input-padding: 0.75rem 0.6rem;
-  --form-input-font-size: 15px;
-  --form-input-disable-color: var(--mt-global-color-silver);
-  --form-input-border-size: 1px;
-  --form-input-border-color: var(--mt-global-color-oslo-gray);
-  --form-input-background-color: var(--mt-background-color-primary);
-  --form-paragraph-color: var(--mt-global-color-dove-gray);
-  --form-paragraph-margin: 0 0 0.9rem;
-  --form-paragraph-font-style: none;
-  --form-paragraph-font-size: var(--form-font-size-xs);
-  --form-label-color: var(--mt-global-color-dove-gray);
-  --form-label-font-size: var(--form-font-size-xs);
-  --form-label-font-weight: light;
-  --form-fieldset-border: 0;
-  --form-fieldset-marign: 0;
-  --form-fieldset-legend-color: var(--form-label-color);
-  --form-fieldset-legend-font-size: var(--form-label-font-size);
-  --form-fieldset-legend-font-weight: var(--form-label-font-weight);
-  --form-fieldset-legend-border: none;
-  --form-fieldset-legend-padding: 0;
-  --form-button-color: var(--mt-background-color-primary);
-  --form-button-font-size: var(--form-font-size-s);
-  --form-button-background-color: var(--mt-global-color-accent-primary);
-  --form-button-background-hover-color: var(--mt-global-color-blue-ribbon);
-  --form-button-border: 2px solid transparent;
-  --form-button-padding: 15px 50px;
-  --form-upload-color: var(--mt-background-color-primary);
-  --form-upload-font-size: var(--form-font-size-xs);
-  --form-upload-background-color: var(--mt-global-color-base-primary);
-  --form-submit-width: 100%;
+    --background-color-primary: #fff;
+    --label-color: #666;
+    --border-color: #818a91;
+    --form-error-color: #ff5f3f;
+    --button-primary-color: #5F8DDA;
+    --button-secondary-color: #666;
+    --button-primary-hover-color: #035fe6;
+    --form-font-size-m: 22px;
+    --form-font-size-s: 18px;
+    --form-font-size-xs: 16px;
+    --form-background-color: var(--background-color-primary);
+    --form-padding: 0;
+    --form-columns: 2;
+    --form-field-horz-gap: 40px;
+    --form-field-vert-gap: 20px;
+    --form-invalid-border-color: #ff5f3f;
+    --form-input-padding: 0.75rem 0.6rem;
+    --form-input-font-size: 1rem;
+    --form-input-disable-color: #ebebe4;
+    --form-input-border-size: 1px;
+    --form-input-border-color: var(--border-color);
+    --form-input-background-color: var(--background-color-primary);
+    --form-paragraph-color: var(--label-color);
+    --form-paragraph-margin: 0 0 0.9rem;
+    --form-paragraph-font-style: none;
+    --form-paragraph-font-size: var(--form-font-size-s);
+    --form-label-color: var(--label-color);
+    --form-label-font-size: var(--form-font-size-s);
+    --form-label-font-weight: 400;
+    --form-title-font-weight: 600;
+    --form-fieldset-border: 0;
+    --form-fieldset-marign: 0;
+    --form-fieldset-columns: 1;
+    --form-fieldset-legend-color: var(--form-label-color);
+    --form-fieldset-legend-font-size: var(--form-label-font-size);
+    --form-fieldset-legend-font-weight: var(--form-title-font-weight);
+    --form-fieldset-legend-border: none;
+    --form-fieldset-legend-padding: 0;
+    --form-button-color: var(--background-color-primary);
+    --form-button-font-size: var(--form-font-size-s);
+    --form-button-background-color: var(--button-primary-color);
+    --form-button-background-hover-color: var(--button-primary-hover-color);
+    --form-button-border: 2px solid transparent;
+    --form-button-padding:15px 50px;
+    --form-upload-color: var(--form-label-color);
+    --form-upload-font-size: var(--form-font-size-xs);
+    --form-upload-background-color: var(--background-color-primary);
+    --form-submit-width: 100%;
+    --form-width: 95%;
+    --form-wizard-background-color: #f2f2f2;
+    --form-wizard-border-color: #757575;
+    --form-wizard-number-color: var(--button-primary-color);
+    --form-wizard-padding: 30px;
+    --form-wizard-padding-bottom: 160px;
+    --form-wizard-step-legend-padding: 10px;
+    --form-wizard-step-legend-font-size: 1.1rem;
 }
 
 * {
-  box-sizing: border-box;
-  font-family:"Adobe Clean", "Open Sans",Arial, Helvetica, sans-serif}
+    box-sizing: border-box;
+}
 
-body {
-  background-color: rgb(247, 247, 247);
+form output {
+    display: block;
+    font-weight: 700;
+    font-size: 1.625rem;
+}
+
+form [data-visible="false"] {
+    display: none !important;
 }
 
 main .form-container {
-  padding: var(--form-padding);
+    background-color: var(--form-background-color);
+    padding: var(--form-padding);
+    width: var(--form-width);
+    margin: var(--nav-height) auto;
 }
 
 main .form {
-  background-color: var(--form-background-color);
+    background-color: var(--form-background-color);
+}
+
+main .form > div:not(:first-child) {
+    display: none;
+}
+
+main .form form {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--form-field-vert-gap) var(--form-field-horz-gap);
+    align-items: start;
 }
 
 main .form form fieldset {
-  border: var(--form-fieldset-border);
-  margin: var(--form-fieldset-marign);
-  width: 100%;
+    border: var(--form-fieldset-border);
+    margin: var(--form-fieldset-marign);
+    width: 100%;
 }
 
 main .form form fieldset fieldset {
-  padding: 0;
+    padding: 0;
 }
 
 main .form .field-description {
-  color: var(--form-label-color);
-  font-size: var(--form-font-size-xs);
+    color: var(--form-label-color);
+    font-size: var(--form-font-size-xs);
 }
 
-main .form :is(input, textarea, select) {
-  background-color: var(--form-input-background-color);
-
-  width: calc(100% - 16px);
-  height: 42px;
-  color: var(--form-label-color);
-  padding: var(--form-input-padding);
-  margin: 10px 0 0;
-  font-size: var(--form-input-font-size);
-  max-width: unset;
+main .form form .field-invalid .field-description {
+    color: var(--form-error-color);
+    font-weight: 700;
 }
 
-main .form input[type="file"] {
-  border: none;
+main .form input,
+main .form textarea,
+main .form select {
+    background-color: var(--form-input-background-color);
+    border: var(--form-input-border-size) solid var(--form-input-border-color);
+    width: 100%;
+    height: 42px;
+    color: var(--form-label-color);
+    padding: var(--form-input-padding);
+    font-size: var(--form-input-font-size);
+    max-width: unset;
+    margin-top: .5rem;
+    margin-bottom: 1rem;
+    border-radius: 0.25rem;
 }
 
-main .form input[type="checkbox"],
-main .form input[type="radio"] {
-  width: 16px;
-  height: 16px;
-  margin: 0 0 0 8px;
-  flex: none;
+main .form input[type='file'] {
+    border: none;
+    padding-inline-start:0;
+    background: unset;
+    color: unset;
+}
+
+main .form input[type='checkbox'],
+main .form input[type='radio'] {
+    width: 16px;
+    height: 16px;
+    flex: none;
+    margin: 0;
+    position: static;
+    z-index: 1;
 }
 
 main .form textarea {
-  min-height: 100px;
+    min-height: 100px;
 }
 
-main .form :is(input:hover, select:hover) {
-  border-color: rgb(90 92 96);
+main .form input:hover, main .form select:hover {
+    border-color: rgb(90 92 96);
 }
 
 main .form fieldset legend {
-  font-weight: var(--form-fieldset-legend-font-weight);
-  font-size: var(--form-fieldset-legend-font-size);
-  color: var(--form-fieldset-legend-color);
-  border-bottom: var(--form-fieldset-legend-border);
-  width: 100%;
-  padding: var(--form-fieldset-legend-padding);
-}
-
-main .innovate form > fieldset > legend {
-  text-align: center;
-}
-
-main .form fieldset legend:has(div.form-radio-wrapper) {
-  border-bottom: 0;
+    font-weight: var(--form-fieldset-legend-font-weight);
+    font-size: var(--form-fieldset-legend-font-size);
+    color: var(--form-fieldset-legend-color);
+    border-bottom: var(--form-fieldset-legend-border);
+    width: 100%;
+    padding: var(--form-fieldset-legend-padding);
+    margin-bottom: 10px;
 }
 
 main .form label {
-  font-weight: var(--form-label-font-weight);
-  font-size: var(--form-label-font-size);
-  color: var(--form-label-color);
-  margin: 1rem 0;
-  margin-bottom: 16px;
+    font-weight: var(--form-label-font-weight);
+    font-size: var(--form-label-font-size);
+    color: var(--form-label-color);
 }
 
 main .form label.required::after {
-  content: "*";
-  color: var(--form-label-color);
-  padding-left: 5px;
+    content: "*";
+    color: var(--form-label-color);
+    padding-inline-start: 5px;
 }
 
 main .form form p,
+main .form form .form-repeat-wrapper,
 main .form form .field-wrapper {
-  margin: var(--form-field-gap);
-  color: var(--form-label-color);
-}
-
-/**  custom*/
-fieldset > .field-wrapper {
-  padding: 20px;
-  background-color: #fff;
-  /* border: 1px solid #dadce0; */
-  border-radius: 8px;
-  margin-bottom: 12px;
-  padding: 15px;
-  color: rgb(32, 33, 36);
+    margin: var(--form-field-gap);
+    color: var(--form-label-color);
+    flex: 1 0 calc(100%/var(--form-columns) - var(--form-field-horz-gap));
 }
 
 main .form form p {
-  font-size: var(--form-paragraph-font-size);
-  font-style: var(--form-paragraph-font-style);
-  color: var(--form-paragraph-color);
-  margin: var(--form-paragraph-margin);
+    font-size: var(--form-paragraph-font-size);
+    font-style: var(--form-paragraph-font-style);
+    color: var(--form-paragraph-color);
+    margin: var(--form-paragraph-margin);
 }
 
-main
-  .form
-  form
-  fieldset
-  > :is(
-    .form-radio-wrapper:first-of-type,
-    .form-checkbox-wrapper:first-of-type
-  ) {
-  padding-top: 30px;
-  margin-top: var(--form-field-gap);
+main .form form .form-checkbox-wrapper, main .form form .form-radio-wrapper {
+    display: flex;
+    align-items: baseline;
+    margin: 0;
+    gap: 8px;
 }
 
-main
-  .form
-  form
-  fieldset
-  > :is(.form-radio-wrapper:last-of-type, .form-checkbox-wrapper:last-of-type) {
-  margin-bottom: 30px;
+main .form form fieldset > .form-radio-wrapper:first-of-type,
+main .form form fieldset > .form-checkbox-wrapper:first-of-type {
+    margin: var(--form-field-gap);
 }
 
-main .form form :is(.form-checkbox-wrapper, .form-radio-wrapper) {
-  display: flex;
-  align-items: baseline;
-  width: 80%;
-  padding: 0px;
-  margin: 5px;
-  margin-left: 20px;
-
-  font-weight: 400;
-  font-size: 11pt;
-  line-height: 2;
-  letter-spacing: 0;
-}
-
-main .form .form-radio-wrapper label,
+main .form .form-radio-wrapper  label,
 main .form .form-checkbox-wrapper label {
-  font-weight: var(--mt-font-weight-regular);
-  margin: 0 0 0.3em 0.3em;
+    flex-basis: calc(100% - 28px);
 }
 
 input::file-selector-button {
-  color: var(--form-upload-color);
-  background: var(--form-upload-background-color);
-  font-size: var(--form-upload-font-size);
-  text-align: center;
+    color: var(--form-upload-color);
+    background: var(--form-upload-background-color);
+    font-size: var(--form-upload-font-size);
+    text-align: center;
 }
 
 main .form button {
-  display: inline-block;
-  outline: none;
+    color: var(--form-button-color);
+    background: var(--form-button-background-color);
+    border: var(--form-button-border);
+    padding: var(--form-button-padding);
+    font-size: var(--form-button-font-size);
+    border-radius: unset;
+    width: 100%;
+}
+
+main form .form-file-wrapper > button{
+    display: flex;
+}
+
+main .form button:hover {
+    background: var(--form-button-background-hover-color);
+}
+
+main .form-submit-wrapper{
+    width: var(--form-submit-width);
+}
+
+main .form input:disabled,
+main .form textarea:disabled,
+main .form select:disabled,
+main .form button:disabled {
+    background-color: var(--form-input-disable-color);
+}
+
+main .form-file-wrapper.decorated input[type="file"] {
+    display: none;
+}
+
+main .form-file-wrapper .field-dropregion {
+    background: rgb(0 0 0 / 2%);
+    border: 1px dashed var(--form-input-border-color);
+    border-radius: 4px;
+    margin: 11px 0 8px;
+    padding: 32px;
+    text-align: center;
+}
+
+main .form form .item-remove {
+    padding: 0;
+    background: #fff;
+    padding-left: 10px;
+}
+
+main .form .file-description span {
   cursor: pointer;
-  padding: 0 25px;
-  background-color: #fff;
-  border-radius: 0.25rem;
-  border: 1px solid #01759f;
-  color: #01759f;
-  font-size: 13px;
-  line-height: 40px;
-  font-weight: 400;
-  text-align: center;
-}
-main .form button:hover {
-  background-color: #01759f;
-  color: #ffffff;
-  
+  text-decoration: underline;
 }
 
-main .form button:hover {
-  background-color: #01759f;
+main .form form .item-remove span {
+    display: block;
+    width: 20px;
+    height: 20px;
+    background: url('./icons/delete.svg') no-repeat;
 }
 
-main .form-submit-wrapper {
-  width: var(--form-submit-width);
-  text-align: center;
+main .form-file-wrapper .file-description button {
+    --form-button-padding: 15px;
+
+    background: url('./icons/delete.svg') no-repeat;
+    width: unset;
+    border: unset;
+    text-align: center;
 }
 
-main
-  .form
-  :is(input:disabled, textarea:disabled, select:disabled, button:disabled) {
-  background-color: var(--form-input-disable-color);
+main .form .form-button-wrapper button {
+    cursor:pointer
 }
 
-.technical-inquiry {
-  --form-fieldset-legend-font-size: var(--mt-font-size-175);
-  --form-fieldset-legend-font-weight: var(--mt-font-weight-regular);
-  --form-fieldset-legend-border: 1px solid rgb(0 0 0 / 10%);
-  --form-fieldset-legend-color: var(--mt-global-color-base-primary);
-  --form-fieldset-legend-padding: 0px 0px 20px 0px;
+main .form .form-button-wrapper button:hover {
+    border: 3px solid var(#fff);
+    color: #fff;
+    background-color: var(--button-secondary-color);
 }
 
-.innovate,
-.study-request {
-  --form-fieldset-legend-font-size: var(--mt-font-size-150);
-  --form-fieldset-legend-font-weight: var(--mt-font-weight-bold);
-  --form-fieldset-legend-border: 2px dashed var(--mt-background-color-primary);
-  --form-background-color: var(--mt-global-color-base-primary);
-  --form-label-color: var(--mt-background-color-primary);
-  --form-paragraph-color: var(--mt-background-color-primary);
-  --form-fieldset-legend-color: var(--mt-background-color-primary);
-  --form-fieldset-legend-padding: 1em 0;
+main .form .form-button-wrapper button[disabled] {
+    cursor:auto
 }
 
-.innovate {
-  --form-fieldset-legend-border: 1px solid gray;
-  --form-fieldset-legend-font-size: var(--mt-font-size-215);
-  --form-fieldset-legend-font-weight: var(--mt-font-weight-boldest);
+main .form .form-button-wrapper button[disabled]:hover {
+    border: 3px solid var(--button-secondary-color);
+    color: var(--button-secondary-color);
+    background-color: transparent;
 }
 
-main .innovate form fieldset fieldset,
-main .study-request form fieldset fieldset {
-  --form-fieldset-legend-color: var(--form-label-color);
-  --form-fieldset-legend-font-size: var(--form-label-font-size);
-  --form-fieldset-legend-font-weight: var(--form-label-font-weight);
-  --form-fieldset-legend-border: none;
-  --form-fieldset-legend-padding: 0;
+/** Wizard Styling */
+main .form form .wizard  {
+    display: grid;
+    position: relative;
+    counter-reset: wizard-step-counter;
+    grid-template-columns: minmax(0, 1fr);
+    border: 2px solid var(--form-wizard-border-color);
+    background-color: var( --form-wizard-background-color);
+    gap: unset;
 }
 
-.form-contacttitle {
-  font-weight: var(--mt-font-weight-bold);
+main .form form .wizard > fieldset {
+    counter-increment: wizard-step-counter;
+    padding: var(--form-wizard-padding) var(--form-wizard-padding) 0;
 }
 
-.study-request .form-firstname,
-.study-request .form-lastname {
-  --form-field-gap: 0;
+main .form form .wizard > fieldset > legend::before {
+    content: counter(wizard-step-counter);
+    display: none;
+    border: 2px solid var(--form-wizard-number-color);
+    color: var(--form-wizard-number-color);
+    border-radius: 50%;
+    width: 35px;
+    height: 35px;
+    margin-right: 10px;
+    text-align: center;
+    line-height: 2;
 }
 
-.study-request :is(.form-information, .form-authorize, .form-terms) {
-  padding: 20px;
-  max-width: 500px;
-  display: block;
-  margin: 0 auto;
-  text-align: center;
-  margin-top: 15px;
-  margin-bottom: 15px;
+main .form form .wizard > fieldset > legend {
+    display: block !important;
+    position: relative;
+    top: var(--form-wizard-padding);
+    font-weight: normal;
+    padding: var(--form-wizard-step-legend-padding);
+    font-size: var(--form-wizard-step-legend-font-size);
 }
 
-main .study-request input[type="file"] {
-  background: rgb(var(--mt-global-color-black) / 2%);
-  border: 1px dashed var(--mt-global-color-silver);
-  border-radius: 4px;
-  margin-bottom: 8px;
-  padding: 32px;
-  text-align: center;
+main .form form .wizard > :not(.current-wizard-step) {
+    display: none;
 }
 
-main .innovate form,
-main .study-request form,
-main .technical-inquiry form {
+main .form form .wizard > .current-wizard-step {
+    display: grid;
+    grid-template-columns: repeat(var(--form-fieldset-columns), minmax(0, 1fr));
+    padding-bottom: var(--form-wizard-padding-bottom);
+}
+
+main .form form .wizard > .current-wizard-step > legend::before {
+    background-color: var(--form-wizard-number-color);
+    color: var(--background-color-primary);
+}
+
+main .form form .wizard > .current-wizard-step > legend {
+    font-weight: 600;
+}
+
+main .form form .wizard > .form-wizard-button-wrapper {
+    display: flex;
+    position: absolute;
+    justify-content: end;
+    gap: 20px;
+    bottom: 60px;
+    right: 0;
+    padding-right: var(--form-wizard-padding);
+}
+
+main .form form .wizard > .form-wizard-button-wrapper .form-button-wrapper {
+    flex: none;
+}
+
+main .form form .wizard > .form-wizard-button-wrapper button {
+    border: 3px solid var(--button-secondary-color);
+    background-color: transparent;
+    color: var(--button-secondary-color);
+    text-align: center;
+}
+
+main .form form .wizard .form-submit-wrapper,
+main .form form .wizard .form-wizard-button-skip,
+main .form form .wizard > .current-wizard-step.form-panel-wrapper:first-of-type ~ .form-wizard-button-wrapper > .form-wizard-button-prev,
+main .form form .wizard > .current-wizard-step.form-panel-wrapper:last-of-type ~ .form-wizard-button-wrapper > .form-wizard-button-next {
+    display: none;
+}
+
+main .form form .wizard .current-wizard-step.field-wrapper:last-of-type ~ .form-wizard-button-wrapper > .form-submit-wrapper {
+    display: inline-block;
+    width: unset;
+}
+
+@media (width >= 600px) {
+    main .form button {
+        width: unset;
+    }
+}
+
+@media(width >= 992px) {
+    main .form form .wizard {
+        --form-wizard-padding: 60px;
+        --form-wizard-step-legend-padding: 15px;
+        --form-wizard-step-legend-font-size: 1.2rem;
+        --form-wizard-step-legend-width: clamp(100px, calc(100%/var(--wizard-step-count)), 330px);
+    }
+
+    main .form form .wizard.left {
+        --form-wizard-step-legend-width: 360px;
+        --form-wizard-padding: 30px;
+        --form-wizard-step-legend-padding: 30px;
+    }
+
+    main .form form .wizard > fieldset > legend::before {
+        display: inline-block;
+    }
+
+    main .form form .wizard > fieldset:not(.current-wizard-step) {
+        display: unset;
+        position: absolute;
+    }
+
+    main .form form .wizard > fieldset:not(.current-wizard-step) > :not(legend) {
+        display: none;
+    }
+
+    /** wizard title on top **/
+    main .form form .wizard > fieldset > legend {
+        width: var(--form-wizard-step-legend-width);
+        white-space: break-spaces;
+        text-overflow: ellipsis;
+        padding: 0 var(--form-wizard-step-legend-padding) calc(2*var(--form-wizard-step-legend-padding));
+        left: calc(var(--form-wizard-step-legend-width) * var(--wizard-step-index));
+    }
+
+    /* wizard title on left */
+    main .form form .wizard.left > fieldset {
+        width: unset;
+    }
+
+    main .form form .wizard.left > .current-wizard-step {
+        border-left: 2px solid var(--form-wizard-border-color);
+        margin-left: var(--form-wizard-step-legend-width);
+        background-color: var(--background-color-primary);
+    }
+
+    main .form form .wizard.left > fieldset > legend {
+        position: absolute;
+        top: calc(var(--wizard-step-index) * 100px);
+        left: 0;
+        padding: var(--form-wizard-step-legend-padding) var(--form-wizard-step-legend-padding) 0;
+    }
+
+    main .form form .wizard.left > .form-wizard-button-wrapper {
+        margin-left:  var(--form-wizard-step-legend-width);
+    }
+}
+
+@media (width >= 1200px) {
+    main .form form .form-checkbox-wrapper,
+    main .form form .form-textarea-wrapper,
+    main .form form .form-file-wrapper,
+    main .form form .form-panel-wrapper {
+        flex: 1 0 100%;
+    }
+
+    main .form form .form-panel-wrapper {
+        flex-flow: row wrap;
+        gap: 10px 15px;
+    }
+}
+
+main form .form-panel-wrapper {
+    display: flex;
+    padding: 0;
+    flex-direction: column;
+}
+
+main .form .form-message.success-message {
+    color: #0f5132;
+    background-color: #d1e7dd;
+    border-color: #badbcc;
+    flex: 100%;
+}
+
+main .form .form-message.error-message {
+    color: #842029;
+    background-color: #f8d7da;
+    border-color: #f5c2c7;
+    flex: 100%;
+}
+
+main .form .form-file-wrapper .form-file-drag-area {
+  border: 1px dashed var(--border-color);
+  border-radius: 5px;
+  padding: 10px 5px;
   display: flex;
   flex-direction: column;
-}
-
-.contact,
-.schedule-demo {
-  --form-paragraph-color: var(--mt-global-color-black);
-  --form-label-color: var(--mt-global-color-black);
-  --form-input-background-color: var(--mt-global-color-alabaste);
-  --form-input-border-size: 1px;
-  --form-input-border-color: var(--mt-global-color-gallery);
-}
-
-main .form form .form-message,
-.form-consent {
-  font-size: var(--mt-font-size-90);
-  border-bottom: solid 2px var(--mt-global-color-gallery);
-}
-
-main .form form .form-message {
-  font-size: var(--mt-font-size-130);
-  font-weight: var(--mt-font-weight-bold);
-  padding: 4%;
-}
-
-.study-request .form-textarea-wrapper textarea {
-  height: 288px;
-}
-
-.form-submission-fs,
-.form-enrollment-fs,
-.form-enrollment-end-fs,
-.form-final-data-fs {
-  display: flex;
-  flex-direction: row;
-  gap: 10px;
-}
-
-.form-submissionmonth,
-.form-submissionday,
-.form-submissionyear,
-.form-enrollmentmonth,
-.form-enrollmentday,
-.form-enrollmentyear,
-.form-enrollmentendmonth,
-.form-enrollmentendday,
-.form-enrollmentendyear,
-.form-finaldatamonth,
-.form-finaldataday,
-.form-finaldatayear {
-  --form-field-gap: 0;
-
-  width: min-content;
-}
-
-#submissionmonth,
-#submissionday,
-#submissionyear,
-#enrollmentmonth,
-#enrollmentday,
-#enrollmentyear,
-#enrollmentendmonth,
-#enrollmentendday,
-#enrollmentendyear,
-#finaldatamonth,
-#finaldataday,
-#finaldatayear {
-  min-width: 84px;
-  width: 100%;
-  margin: 0;
-}
-
-.innovate .form-submit-wrapper .button,
-.study-request .form-submit-wrapper .button,
-.contact .form-submit-wrapper .button,
-.schedule-demo .form-submit-wrapper .button,
-.technical-inquiry .form-submit-wrapper .button {
-  width: calc(100% - 16px);
-}
-
-@media (max-width: 767px) {
-  .form-container {
-    max-width: 100%;
-  }
-
-  .form-fieldset-wrapper {
-    padding: 2px;
-  }
-
-  main .form form fieldset[name="titlepanel"] {
-    width: 100%;
-    margin: auto;
-  }
-}
-
-@media (min-width: 768px) {
-  .form-container {
-    max-width: 740px;
-    margin: 0 auto 10px;
-  }
-
-  form {
-    width: unset;
-    flex-flow: wrap row;
-  }
-}
-
-@media (min-width: 1200px), (min-width: 992px) {
-  :root {
-    --form-columns: 2;
-  }
-
-  .form-firstname,
-  .form-lastname,
-  .form-country,
-  .form-postalcode,
-  .form-phone,
-  .form-email,
-  .form-preferred-day-fs,
-  .form-preferred-time-fs,
-  .form-product-fs,
-  .form-solution-fs {
-    grid-column: span calc(var(--form-columns) / 2);
-  }
-
-  .form-contact-type-fs,
-  .form-company,
-  .form-description,
-  .form-message,
-  .form-consent,
-  .form-submit-wrapper {
-    grid-column: span 4;
-  }
-
-  .form-email-opt-fs {
-    grid-column-start: 1;
-  }
-
-  main .innovate,
-  main .study-request {
-    max-width: 1060px;
-    padding: 0;
-  }
-
-  main .innovate form,
-  main .study-request form {
-    max-width: 800px;
-    margin: 0 auto;
-  }
-
-  .innovate .form-personal-info {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-  }
-
-  .innovate .form-email {
-    grid-column: span 2;
-  }
-
-  .innovate .form-company {
-    grid-column: span 1;
-  }
-
-  .technical-inquiry .form-contact-details-fs {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-  }
-
-  .technical-inquiry .form-country {
-    grid-column: span 2;
-  }
-
-  .contact,
-  .schedule-demo {
-    --form-columns: 4;
-  }
-
-  .contact .form-product-fs {
-    grid-column: span 1;
-  }
-
-  .study-request .form-pi-and-contact-fs,
-  .study-request .form-study-fs,
-  .form-statistical-fs,
-  .form-budget-fs,
-  .form-milestones-fs,
-  .form-document-fs {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-  }
-
-  .study-request .form-pi-and-contact-fs,
-  .study-request .form-institutionaddress,
-  .form-contacttitle,
-  .form-studytitle,
-  .form-product,
-  .form-background,
-  .form-statistical,
-  #milestones-fs-description,
-  #document-fs-description {
-    grid-column: span 2;
-  }
-
-  main .innovate form .form-ack-fs {
-    padding: 0 15% 5px;
-    border-radius: 3px;
-    margin-top: 36px 0;
-  }
-}
-
-.form-title {
-  font-size: 24pt;
-
-  letter-spacing: 0;
-}
-
-.form-description {
-  font-size: large;
-}
-
-footer {
-  display: none;
-}
-
-header {
-  display: none;
-}
-
-/**  custom */
-
-.field-required-error {
-  color: #bc2f32;
-  font-size: 0.823rem;
-  display: none;
-}
-
-main form fieldset.form-fieldset-wrapper > label:first-child {
-  position: relative;
-  left: 26px;
-  top: 15px;
-  font-weight: var(--form-label-font-weight);
-  font-size: var(--form-label-font-size);
-}
-
-.required-text {
-  color: #bc2f32;
-}
-
-.field-required-error {
-  position: relative;
-  left: 20px;
-}
-
-main .form form fieldset[name="titlepanel"] {
-  background-color: white;
-  box-shadow: 0 2px 1px -1px rgba(0, 0, 0, 0.2),
-    0 1px 1px 0 rgba(0, 0, 0, 0.141), 0 1px 3px 0 rgba(0, 0, 0, 0.122);
-  border-radius: 8px;
-  border-top: 5px #01759f solid;
-  width: 95%;
-  margin: auto;
-}
-
-main .form form fieldset[name="titlepanel"] .form-title {
-  font-size: 2rem;
-}
-
-main .form form fieldset[name="titlepanel"] .form-description {
-  font-size: 1.2rem;
-}
-
-main .form form fieldset[name="datapanel"] > .field-wrapper {
-  box-shadow: 0 2px 1px -1px rgba(0, 0, 0, 0.2),
-    0 1px 1px 0 rgba(0, 0, 0, 0.141), 0 1px 3px 0 rgba(0, 0, 0, 0.122);
-  border-radius: 8px;
-}
-
-main .form form fieldset[name="datapanel"] > .form-text-wrapper {
-  padding: 30px;
-}
-
-main .form .field-wrapper input[type="text"] {
-  border: 0;
-  border-bottom: 0.8px solid #d0bdbd;
-  font-weight: 400;
-  transition: border-color 0.2s ease-in-out;
-}
-
-main .form .field-wrapper input[type="text"]:focus {
-  border: 0;
-  border-bottom: 0.8px solid #d0bdbd;
-  outline: none;
+  gap: 20px;
+  justify-content: center;
+  align-items: center;
 }
