@@ -1,5 +1,5 @@
 mountpoints:
   /:
-    url: https://author-p115476-e1134617.adobeaemcloud.com/bin/franklin.delivery/znikolovski/boilerplate-xwalk/main
+    url: https://author-p115476-e1134617.adobeaemcloud.com
     type: markup
-    suffix: ".html"
+    suffix: ".md.html"
