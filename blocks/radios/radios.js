@@ -94,20 +94,48 @@ export default function decorate(block) {
   */
   /* change to ul, li */
   const radioGroup = document.createElement('div');
+  radioGroup.className = "sg-Radio-table sg-Radio-table--2cols sg-Radio-table--collapseLarge";
   [...block.children].forEach((row) => {
     const label = document.createElement('label');
+    let text = 'Landlord';
+   
+    label.className = 'sg-Radio sg-Radio-btn sg-Grid-col6--medium';
     [...row.attributes].forEach(({ nodeName, nodeValue }) => {
       label.setAttribute(nodeName, nodeValue);
-      label.className = 'sg-Radio sg-Radio-btn sg-Grid-col6--medium';
+      
     });
     while (row.firstElementChild) label.append(row.firstElementChild);
     [...label.children].forEach((div) => {
-      if (div.children.length === 1 && div.querySelector('picture')) div.className = 'cards-card-image';
-      else div.className = 'cards-card-body';
+      if(div.textContent) {
+        text = div.textContent;
+        console.log(div.textContent)
+      }
     });
+    label.innerHTML = '';
+    const input = document.createElement('input');
+    input.setAttribute('type', 'radio');
+    input.setAttribute('name', 'radiocheck-complexRadioButtons');
+    input.setAttribute('aria-describedby', 'sgdocs-dialog-button-tooltip6');
+    input.className = 'sg-Radio-input';
+    label.append(input);
+    const info = document.createElement('i');
+    info.className = 'sg-Radio-icon';
+    label.append(info);
+    const radioText = document.createElement('div');
+    radioText.className = 'sg-Radio-text';
+    const radioTextIcon = document.createElement('i');
+    const radioTextContentIcon = document.createElement('i');
+    const radioTextContent = document.createElement('span');
+    radioTextIcon.className = 'sg-Radio-contentIcon Icon-styleGuy--dark Icon--xlarge';
+    radioTextContentIcon.className = 'sg-Radio-contentIcon--checked Icon-styleGuy--dark Icon--xlarge';
+    radioTextContent.className = 'sg-u-noMargin sg-Type--prominent';
+    radioTextContent.textContent = text;
+    radioText.append(radioTextIcon);
+    radioText.append(radioTextContentIcon)
+    radioText.append(radioTextContent);
+    label.append(radioText);
     radioGroup.append(label);
   });
-  radioGroup.querySelectorAll('img').forEach((img) => img.closest('picture').replaceWith(createOptimizedPicture(img.src, img.alt, false, [{ width: '750' }])));
   block.textContent = '';
   block.append(radioGroup);
 }
