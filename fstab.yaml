@@ -2,4 +2,4 @@ mountpoints:
  /:
     url: https://author-p115476-e1134617.adobeaemcloud.com
     type: markup
-    suffix: ".md.html"
+    suffix: ".html"
