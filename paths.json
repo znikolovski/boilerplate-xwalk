@@ -1,8 +1,5 @@
 {
   "mappings": [
     "/:/"
-  ],
-  "includes": [
-    "/content"
   ]
 }
