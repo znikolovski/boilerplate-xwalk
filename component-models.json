@@ -157,6 +157,27 @@
         "value": "",
         "label": "Text",
         "valueType": "string"
+      },
+      {
+        "component": "select",
+        "name": "icon",
+        "value": "styleguy",
+        "label": "Icon",
+        "valueType": "string",
+        "options": [
+          {
+            "name": "Home",
+            "value": "home"
+          },
+          {
+            "name": "Motor",
+            "value": "motor"
+          },
+          {
+            "name": "Style Guy",
+            "value": "styleguy"
+          }
+        ]
       }
     ]
   },
