@@ -227,7 +227,7 @@
         "valueType": "string",
         "name": "fragment",
         "label": "Fragment",
-        "multi": true
+        "multi": false
       }
     ]
   }
